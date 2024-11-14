@@ -1,5 +1,9 @@
 class Server:
-    pass
+    server_count = 0
+
+    def __new__(cls, *args, **kwargs):
+        cls.server_count += 1
+        return super().__new__(cls)
 
 
 class Router:
