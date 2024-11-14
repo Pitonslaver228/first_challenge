@@ -21,6 +21,9 @@ class Router:
         self.buffer: list[Data] = []
         self.servers: list[Server] = []
 
+    def link_server(self, server: Server) -> None:
+        self.servers.append(server)
+
 
 class Data:
     def __init__(self, data: str, ip: int) -> None:
