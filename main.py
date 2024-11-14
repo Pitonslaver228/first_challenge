@@ -7,6 +7,7 @@ class Server:
 
     def __init__(self):
         self.ip = self.server_count
+        self.buffer: list[Data] = []
 
 
 class Router:
@@ -24,10 +25,15 @@ class Router:
     def link_server(self, server: Server) -> None:
         if server not in self.servers:
             self.servers.append(server)
+            server.router = self
 
     def unlink_server(self, server: Server) -> None:
         if server in self.servers:
             self.servers.remove(server)
+            del server.__dict__["router"]
+
+    def send_data(self):
+        pass
 
 
 class Data:
