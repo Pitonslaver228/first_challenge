@@ -17,6 +17,10 @@ class Router:
             cls.__instance = super().__new__(cls)
         return cls.__instance
 
+    def __init__(self):
+        self.buffer: list[Data] = []
+        self.servers: list[Server] = []
+
 
 class Data:
     def __init__(self, data: str, ip: int) -> None:
