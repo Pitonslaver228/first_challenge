@@ -22,7 +22,8 @@ class Router:
         self.servers: list[Server] = []
 
     def link_server(self, server: Server) -> None:
-        self.servers.append(server)
+        if server not in self.servers:
+            self.servers.append(server)
 
 
 class Data:
