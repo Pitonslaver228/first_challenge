@@ -25,6 +25,10 @@ class Router:
         if server not in self.servers:
             self.servers.append(server)
 
+    def unlink_server(self, server: Server) -> None:
+        if server in self.servers:
+            self.servers.remove(server)
+
 
 class Data:
     def __init__(self, data: str, ip: int) -> None:
