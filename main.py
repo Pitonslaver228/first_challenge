@@ -5,6 +5,9 @@ class Server:
         cls.server_count += 1
         return super().__new__(cls)
 
+    def __init__(self):
+        self.ip = self.server_count
+
 
 class Router:
     pass
