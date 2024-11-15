@@ -1,3 +1,9 @@
+class Data:
+    def __init__(self, data: str, ip: int) -> None:
+        self.data = data
+        self.ip = ip
+
+
 class Server:
     server_count = 0
 
@@ -38,9 +44,3 @@ class Router:
                 if data.ip == server.ip:
                     server.buffer.append(data)
         self.buffer.clear()
-
-
-class Data:
-    def __init__(self, data: str, ip: int) -> None:
-        self.data = data
-        self.ip = ip
