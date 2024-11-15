@@ -19,7 +19,7 @@ class Server:
         self.router.buffer.append(data)
 
     def get_data(self) -> list:
-        res = self.buffer
+        res = self.buffer.copy()
         self.buffer.clear()
         return res
 
