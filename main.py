@@ -18,6 +18,11 @@ class Server:
     def send_data(self, data: Data) -> None:
         self.router.buffer.append(data)
 
+    def get_data(self) -> list:
+        res = self.buffer
+        self.buffer.clear()
+        return res
+
     def get_ip(self) -> int:
         return self.ip
 
@@ -34,12 +39,12 @@ class Router:
         self.buffer: list[Data] = []
         self.servers: list[Server] = []
 
-    def link_server(self, server: Server) -> None:
+    def link(self, server: Server) -> None:
         if server not in self.servers:
             self.servers.append(server)
             server.router = self
 
-    def unlink_server(self, server: Server) -> None:
+    def unlink(self, server: Server) -> None:
         if server in self.servers:
             self.servers.remove(server)
             del server.__dict__["router"]
