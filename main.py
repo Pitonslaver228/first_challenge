@@ -15,6 +15,9 @@ class Server:
         self.ip = self.server_count
         self.buffer: list[Data] = []
 
+    def send_data(self, data: Data) -> None:
+        self.router.buffer.append(data)
+
 
 class Router:
     __instance = False
