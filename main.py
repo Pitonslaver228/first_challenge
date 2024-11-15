@@ -18,6 +18,9 @@ class Server:
     def send_data(self, data: Data) -> None:
         self.router.buffer.append(data)
 
+    def get_ip(self) -> int:
+        return self.ip
+
 
 class Router:
     __instance = False
