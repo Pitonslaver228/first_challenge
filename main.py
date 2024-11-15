@@ -32,8 +32,12 @@ class Router:
             self.servers.remove(server)
             del server.__dict__["router"]
 
-    def send_data(self):
-        pass
+    def send_data(self) -> None:
+        for data in self.buffer:
+            for server in self.servers:
+                if data.ip == server.ip:
+                    server.buffer.append(data)
+        self.buffer.clear()
 
 
 class Data:
